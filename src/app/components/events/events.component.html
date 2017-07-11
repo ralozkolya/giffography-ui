@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="bpg-arial-caps">
+    {{ 'events' | translate }}
+    <i *ngIf="loading" class="fa fa-spinner fa-pulse" aria-hidden="true"></i>
+  </h1>
+  <div>
+    <div *ngIf="events">
+      <ul class="event-list clearfix">
+        <li *ngFor="let event of events.data | paginate: {
+            itemsPerPage: events.per_page,
+            currentPage: events.current_page,
+            totalItems: events.total
+          }">
+          <app-event-thumb [name]="event.name"></app-event-thumb>
+        </li>
+      </ul>
+      <div>
+        <pagination-controls (pageChange)="changePage($event)"></pagination-controls>
+      </div>
+    </div>
+    <div *ngIf="error">
+      <h3 class="bpg-arial-caps">{{ 'error occurred' | translate }}</h3>
+    </div>
+  </div>
+</div>

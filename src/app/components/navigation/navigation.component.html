@@ -1,0 +1,26 @@
+<div id="navigation" class="bpg-arial-caps">
+  <div class="container clearfix">
+    <div class="flex-container">
+      <a [routerLink]="[ '/' | localize ]">
+        <img src="https://placehold.it/100x50" alt="Logo">
+      </a>
+      <ul [class.collapsed]="!expanded">
+        <li><a [routerLink]="[ '/' | localize ]">{{ 'home' | translate }}</a></li>
+        <li><a [routerLink]="[ '/events' | localize ]">{{ 'events' | translate }}</a></li>
+        <li class="langs-mobile visible-xs">
+          <a [routerLink]="[ getUrl('ka') ]">ქა</a>
+          <a [routerLink]="[ getUrl('en') ]">En</a>
+        </li>
+      </ul>
+      <button class="navbar-toggle visible-xs" (click)="expanded = !expanded">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="langs">
+        <a [routerLink]="[ getUrl('ka') ]">ქა</a>
+        <a [routerLink]="[ getUrl('en') ]">En</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@import '../scss/_variables';
+
+@mixin list-item() {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  padding-top: 75%;
+  float: left;
+
+  @media (min-width: $xs) {
+    width: 50%;
+    padding-top: 37.5%;
+  }
+
+  @media (min-width: $sm) {
+    width: 33.33%;
+    padding-top: 25%;
+  }
+
+  @media (min-width: $md) {
+    width: 25%;
+    padding-top: 18.75%;
+  }
+}
+
+@mixin list-object() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

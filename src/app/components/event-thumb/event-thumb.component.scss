@@ -1,0 +1,9 @@
+@import '../../scss/_mixins';
+
+.event-thumb {
+  @include list-item();
+
+  > img {
+    @include list-object();
+  }
+}

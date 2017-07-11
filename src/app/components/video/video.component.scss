@@ -1,0 +1,6 @@
+@import '../../scss/_mixins';
+
+video {
+  @include list-object();
+  background: black;
+}

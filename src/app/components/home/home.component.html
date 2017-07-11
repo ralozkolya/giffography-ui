@@ -1,0 +1,9 @@
+<app-banners></app-banners>
+<div class="container">
+  <div>
+    <h4 class="bpg-arial-caps">{{ 'last uploaded' | translate }}</h4>
+  </div>
+  <div *ngIf="lastVideos">
+    <app-videos-container [videos]="lastVideos"></app-videos-container>
+  </div>
+</div>
