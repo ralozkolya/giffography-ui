@@ -18,6 +18,7 @@ import { BannersComponent } from './components/banners/banners.component';
 import { EventThumbComponent } from './components/event-thumb/event-thumb.component';
 import { VideoComponent } from './components/video/video.component';
 import { VideosContainerComponent } from './components/videos-container/videos-container.component';
+import { PageComponent } from './components/page/page.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http);
@@ -33,7 +34,8 @@ export function HttpLoaderFactory(http: Http) {
     BannersComponent,
     EventThumbComponent,
     VideoComponent,
-    VideosContainerComponent
+    VideosContainerComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,

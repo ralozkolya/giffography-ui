@@ -2,11 +2,11 @@
   <div class="container clearfix">
     <div class="flex-container">
       <a [routerLink]="[ '/' | localize ]">
-        <img src="https://placehold.it/100x50" alt="Logo">
+        <span class="lead logo">Giffography</span>
       </a>
       <ul [class.collapsed]="!expanded">
-        <li><a [routerLink]="[ '/' | localize ]">{{ 'home' | translate }}</a></li>
         <li><a [routerLink]="[ '/events' | localize ]">{{ 'events' | translate }}</a></li>
+        <li><a [routerLink]="[ '/about' | localize ]">{{ 'about' | translate }}</a></li>
         <li class="langs-mobile visible-xs">
           <a [routerLink]="[ getUrl('ka') ]">ქა</a>
           <a [routerLink]="[ getUrl('en') ]">En</a>
