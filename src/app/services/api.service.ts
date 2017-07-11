@@ -3,9 +3,10 @@ import { Http, Response } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import {PaginatedResponse} from "../interfaces/paginated-response";
-import {Event} from "../interfaces/event";
-import {Video} from "../interfaces/video";
+import { PaginatedResponse } from '../interfaces/paginated-response';
+import { Event } from '../interfaces/event';
+import { Video } from '../interfaces/video';
+import { Page } from '../interfaces/page';
 
 @Injectable()
 export class ApiService {
@@ -40,6 +41,10 @@ export class ApiService {
     }
 
     return await this.http.get(this.lastVideosUrl).map(res => res.json()).toPromise();
+  }
+
+  public async loadPage(path: string): Promise<Page> {
+    return Promise.resolve({title: 'test', body: '<h2>Test</h2>'});
   }
 
 }
