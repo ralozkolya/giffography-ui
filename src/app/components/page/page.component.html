@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>
+    {{ title }}
+    <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+  </h1>
+  <div [innerHTML]="body"></div>
+</div>

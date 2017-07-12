@@ -1,8 +1,7 @@
 <div>
   <div *ngFor="let video of videos" class="video-container">
-    <app-video
-      [poster]="video.files.thumb.full_path"
-      [source]="video.files.video.full_path"
-      [mimetype]="video.files.video.mimetype"></app-video>
+    <a [routerLink]="[ '/videos', video.id ] | localize">
+      <app-video [video]="video"></app-video>
+    </a>
   </div>
 </div>

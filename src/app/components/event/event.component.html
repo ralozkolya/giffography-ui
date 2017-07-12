@@ -1,0 +1,6 @@
+<div class="container">
+  <h1>{{ event.name }}</h1>
+  <div *ngIf="videos.data">
+    <app-videos-container [videos]="videos.data"></app-videos-container>
+  </div>
+</div>
