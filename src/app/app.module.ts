@@ -22,6 +22,7 @@ import { PageComponent } from './components/page/page.component';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { VideoPreviewComponent } from './components/video-preview/video-preview.component';
+import { EventComponent } from './components/event/event.component';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http);
@@ -40,7 +41,8 @@ export function HttpLoaderFactory(http: Http) {
     VideosContainerComponent,
     PageComponent,
     VideoPageComponent,
-    VideoPreviewComponent
+    VideoPreviewComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,

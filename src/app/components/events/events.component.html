@@ -11,7 +11,9 @@
             currentPage: events.current_page,
             totalItems: events.total
           }">
-          <app-event-thumb [name]="event.name"></app-event-thumb>
+          <a [routerLink]="[ '/events', event.id ] | localize">
+            <app-event-thumb [name]="event.name"></app-event-thumb>
+          </a>
         </li>
       </ul>
       <div>
