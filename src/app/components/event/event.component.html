@@ -1,5 +1,8 @@
 <div class="container">
-  <h1>{{ event.name }}</h1>
+  <h1>
+    {{ event.name }}
+    <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+  </h1>
   <div *ngIf="videos.data">
     <app-videos-container [videos]="videos.data"></app-videos-container>
   </div>
