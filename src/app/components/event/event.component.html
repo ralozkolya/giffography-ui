@@ -1,11 +1,11 @@
 <div class="container">
   <h1>
-    {{ event.name }}
+    {{ name }}
     <i *ngIf="loading" class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
   </h1>
-  <div *ngIf="videos.data">
+  <div *ngIf="!isEmpty()">
     <app-videos-container [videos]="videos.data"></app-videos-container>
   </div>
-  <div *ngIf="!videos.data.length && !loading"><h4>{{ "nothing found" | localize }}</h4></div>
+  <div *ngIf="isEmpty() && !loading"><h4>{{ "nothing found" | localize }}</h4></div>
   <div *ngIf="error">{{ "error occured" | localize }}</div>
 </div>
