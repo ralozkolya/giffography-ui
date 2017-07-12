@@ -1,6 +1,14 @@
 <div class="container">
   <div *ngIf="video">
-    <app-video-preview [video]="video"></app-video-preview>
+    <br>
+    <div class="row">
+      <div class="col-sm-8">
+        <app-video-preview [video]="video"></app-video-preview>
+      </div>
+      <div class="col-sm-4">
+        Additional info coming soon...
+      </div>
+    </div>
   </div>
   <div *ngIf="error">{{ 'error occured' | localize }}</div>
 </div>
