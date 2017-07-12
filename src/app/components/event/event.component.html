@@ -3,4 +3,6 @@
   <div *ngIf="videos.data">
     <app-videos-container [videos]="videos.data"></app-videos-container>
   </div>
+  <div *ngIf="!videos.data.length && !loading"><h4>{{ "nothing found" | localize }}</h4></div>
+  <div *ngIf="error">{{ "error occured" | localize }}</div>
 </div>
