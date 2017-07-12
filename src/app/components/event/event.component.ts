@@ -22,33 +22,27 @@ export class EventComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private api: ApiService) { }
 
-  ngOnInit() {
-    this.retrieveEvent(this.route.snapshot.params.id);
-    this.retrieveVideos(this.route.snapshot.params.id);
+  async ngOnInit() {
+    this.loading = true;
+    await this.retrieveEvent(this.route.snapshot.params.id);
+    await this.retrieveVideos(this.route.snapshot.params.id);
+    this.loading = false;
   }
 
   private async retrieveEvent(id: number): Promise<void> {
-    this.loading = true;
-
     try {
       this.event = await this.api.getEvent(id);
     } catch (e) {
       this.error = e;
     }
-
-    this.loading = false;
   }
 
   private async retrieveVideos(eventId: number): Promise<void> {
-    this.loading = true;
-
     try {
       this.videos = await this.api.getVideos(eventId);
     } catch (e) {
       this.error = e;
     }
-
-    this.loading = false;
   }
 
 }
