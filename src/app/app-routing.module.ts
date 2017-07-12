@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EventsComponent } from './components/events/events.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageComponent } from './components/page/page.component';
+import { VideoPageComponent } from './components/video-page/video-page.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,10 @@ export const routes: Routes = [
   {
     path: 'about',
     component: PageComponent,
+  },
+  {
+    path: 'videos/:id',
+    component: VideoPageComponent
   }
 ];
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -8,15 +8,18 @@ import { Event } from '../interfaces/event';
 import { Video } from '../interfaces/video';
 import { Page } from '../interfaces/page';
 
+import { environment } from '../../environments/environment';
+
 @Injectable()
 export class ApiService {
 
   private events = null;
   private lastVideos = null;
 
-  private baseUrl = 'http://localhost:8000';
+  private baseUrl = environment.apiUrl;
   private eventsUrl = `${this.baseUrl}/events`;
   private lastVideosUrl = `${this.baseUrl}/videos/last`;
+  private videoUrl = `${this.baseUrl}/videos/`;
 
   constructor(private http: Http) { }
 
@@ -41,6 +44,10 @@ export class ApiService {
     }
 
     return await this.http.get(this.lastVideosUrl).map(res => res.json()).toPromise();
+  }
+
+  public async getVideo(id: number): Promise<Video> {
+    return await this.http.get(this.videoUrl + id).map(res => res.json()).toPromise();
   }
 
   public async loadPage(path: string): Promise<Page> {
