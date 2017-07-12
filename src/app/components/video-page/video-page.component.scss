@@ -1,0 +1,12 @@
+@import '../../scss/_variables';
+
+h1 {
+  margin-top: 0;
+}
+
+.info {
+
+  @media (max-width: $sm - 1) {
+    text-align: center;
+  }
+}

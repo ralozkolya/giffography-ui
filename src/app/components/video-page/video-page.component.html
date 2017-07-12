@@ -6,15 +6,28 @@
         <app-video-preview [video]="video"></app-video-preview>
       </div>
       <div class="col-sm-4">
-        Additional info coming soon...
-        <div>
-          <button class="btn btn-primary" (click)="share()">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-            Share
-          </button>
+        <h1>{{ name }}</h1>
+        <div class="info">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" (click)="share()">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </button>
+              </span>
+              <span class="input-group-btn">
+                <button class="btn btn-default" [ngxClipboard]="copyInput"
+                        [class.btn-success]="copied" [disabled]="copied"
+                        (cbOnSuccess)="copied = true">
+                  <i class="fa fa-link" aria-hidden="true"></i>
+                </button>
+              </span>
+              <input class="form-control" type="text" [(ngModel)]="url" #copyInput>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div *ngIf="error">{{ 'error occured' | localize }}</div>
+  <div *ngIf="error">{{ 'error occured' | translate }}</div>
 </div>

@@ -26,7 +26,7 @@ export class EventComponent implements OnInit {
               private api: ApiService,
               private translate: TranslateService) { }
 
-  async ngOnInit() {
+  public async ngOnInit() {
 
     this.translate.onLangChange.subscribe(() => {
       this.assignName();

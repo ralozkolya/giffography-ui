@@ -6,6 +6,6 @@
   <div *ngIf="!isEmpty()">
     <app-videos-container [videos]="videos.data"></app-videos-container>
   </div>
-  <div *ngIf="isEmpty() && !loading"><h4>{{ "nothing found" | localize }}</h4></div>
-  <div *ngIf="error">{{ "error occured" | localize }}</div>
+  <div *ngIf="isEmpty() && !loading"><h4>{{ "nothing found" | translate }}</h4></div>
+  <div *ngIf="error">{{ "error occured" | translate }}</div>
 </div>
