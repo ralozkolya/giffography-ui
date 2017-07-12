@@ -17,11 +17,11 @@ export class ApiService {
   private lastVideos = null;
 
   private baseUrl = environment.apiUrl;
-  private eventsUrl = `${this.baseUrl}/events`;
-  private eventUrl = `${this.baseUrl}/events/:id`;
-  private lastVideosUrl = `${this.baseUrl}/videos/last`;
-  private videosUrl = `${this.baseUrl}/events/:id/videos`;
-  private videoUrl = `${this.baseUrl}/videos/:id`;
+  private eventsUrl = `${this.baseUrl}events`;
+  private eventUrl = `${this.baseUrl}events/:id`;
+  private lastVideosUrl = `${this.baseUrl}videos/last`;
+  private videosUrl = `${this.baseUrl}events/:id/videos`;
+  private videoUrl = `${this.baseUrl}videos/:id`;
 
   constructor(private http: Http) { }
 

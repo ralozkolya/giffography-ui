@@ -12,7 +12,7 @@
             totalItems: events.total
           }">
           <a [routerLink]="[ '/events', event.id ] | localize">
-            <app-event-thumb [name]="event.name"></app-event-thumb>
+            <app-event-thumb [event]="event"></app-event-thumb>
           </a>
         </li>
       </ul>

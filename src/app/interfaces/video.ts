@@ -1,15 +1,13 @@
+import { File } from './file';
+
 export interface Video {
   id: number;
   url: string;
+  event: number;
   files: Files;
 }
 
 interface Files {
   thumb: File;
   video: File;
-}
-
-interface File {
-  full_path: string;
-  mimetype: string;
 }
