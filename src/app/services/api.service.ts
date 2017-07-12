@@ -18,8 +18,10 @@ export class ApiService {
 
   private baseUrl = environment.apiUrl;
   private eventsUrl = `${this.baseUrl}/events`;
+  private eventUrl = `${this.baseUrl}/events/:id`;
   private lastVideosUrl = `${this.baseUrl}/videos/last`;
-  private videoUrl = `${this.baseUrl}/videos/`;
+  private videosUrl = `${this.baseUrl}/events/:id/videos`;
+  private videoUrl = `${this.baseUrl}/videos/:id`;
 
   constructor(private http: Http) { }
 
@@ -37,6 +39,11 @@ export class ApiService {
     }).map(res => res.json()).toPromise();
   }
 
+  public async getEvent(id: number): Promise<Event> {
+    const url = this.eventUrl.replace(':id', id.toString());
+    return await this.http.get(url).map(res => res.json()).toPromise();
+  }
+
   public async getLast(): Promise<Video[]> {
 
     if (this.lastVideos) {
@@ -46,8 +53,15 @@ export class ApiService {
     return await this.http.get(this.lastVideosUrl).map(res => res.json()).toPromise();
   }
 
+  public async getVideos(eventId: number = null): Promise<PaginatedResponse<Video>> {
+    const url = this.videosUrl.replace(':id', eventId.toString());
+    return await this.http.get(url).map(res => res.json()).toPromise();
+  }
+
+
   public async getVideo(id: number): Promise<Video> {
-    return await this.http.get(this.videoUrl + id).map(res => res.json()).toPromise();
+    const url = this.videoUrl.replace(':id', id.toString());
+    return await this.http.get(url).map(res => res.json()).toPromise();
   }
 
   public async loadPage(path: string): Promise<Page> {
