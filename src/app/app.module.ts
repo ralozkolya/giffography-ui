@@ -6,6 +6,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LocalizeRouterModule } from 'localize-router';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FacebookModule } from 'ng2-facebook-sdk';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
@@ -23,6 +24,7 @@ import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { VideoPreviewComponent } from './components/video-preview/video-preview.component';
 import { EventComponent } from './components/event/event.component';
+import { FacebookInitParamsService } from './services/facebook-init-params.service';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http);
@@ -58,9 +60,10 @@ export function HttpLoaderFactory(http: Http) {
     }),
     LocalizeRouterModule.forRoot(routes),
     NgxPaginationModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FacebookModule.forRoot(),
   ],
-  providers: [ApiService],
+  providers: [ApiService, FacebookInitParamsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

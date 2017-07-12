@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FacebookService } from 'ng2-facebook-sdk';
+
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { Video } from '../../interfaces/video';
 import { Meta } from '@angular/platform-browser';
+import { FacebookInitParamsService } from '../../services/facebook-init-params.service';
 
 @Component({
   selector: 'app-video-page',
@@ -16,10 +19,26 @@ export class VideoPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private api: ApiService,
-              private meta: Meta) {}
+              private meta: Meta,
+              private facebook: FacebookService,
+              private fbParams: FacebookInitParamsService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.retrieveVideo(this.route.snapshot.params.id);
+  }
+
+  public async share(): Promise<void> {
+
+    await this.facebook.init(this.fbParams.params);
+
+    try {
+      await this.facebook.ui({
+        method: 'share',
+        href: `https://api.giffography.ge/redirect/videos/${this.video.id}`,
+      });
+    } catch (e) {
+      // Probably just cancelled
+    }
   }
 
   private async retrieveVideo(id): Promise<void> {
