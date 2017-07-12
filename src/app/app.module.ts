@@ -19,6 +19,7 @@ import { EventThumbComponent } from './components/event-thumb/event-thumb.compon
 import { VideoComponent } from './components/video/video.component';
 import { VideosContainerComponent } from './components/videos-container/videos-container.component';
 import { PageComponent } from './components/page/page.component';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { VideoPageComponent } from './components/video-page/video-page.component';
 import { VideoPreviewComponent } from './components/video-preview/video-preview.component';
 
@@ -55,6 +56,7 @@ export function HttpLoaderFactory(http: Http) {
     }),
     LocalizeRouterModule.forRoot(routes),
     NgxPaginationModule,
+    InfiniteScrollModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
