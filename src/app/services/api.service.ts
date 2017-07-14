@@ -65,7 +65,12 @@ export class ApiService {
   }
 
   public async getPage(path: string): Promise<Page> {
-    return Promise.resolve({title: 'test', body: '<h2>Test</h2>'});
+    return Promise.resolve({
+      ka_title: 'ჩვენს შესახებ',
+      ka_body: '<h2>მალე...</h2>',
+      en_title: 'About us',
+      en_body: '<h2>Coming soon...</h2>',
+    });
   }
 
   public async getBanners(): Promise<Banner[]> {
