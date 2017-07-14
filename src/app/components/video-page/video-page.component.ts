@@ -58,6 +58,8 @@ export class VideoPageComponent implements OnInit {
     try {
       this.video = await this.api.getVideo(id);
       this.url = `${environment.apiUrl}redirect/videos/${this.video.id}`;
+      // TODO: remove this
+      this.url = this.url.replace('api/', '');
       this.event = await this.api.getEvent(this.video.event);
       this.assignName();
     } catch (e) {

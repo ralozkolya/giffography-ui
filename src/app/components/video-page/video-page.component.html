@@ -14,8 +14,6 @@
                 <button class="btn btn-primary" (click)="share()">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </button>
-              </span>
-              <span class="input-group-btn">
                 <button class="btn btn-default" [ngxClipboard]="copyInput"
                         [class.btn-success]="copied" [disabled]="copied"
                         (cbOnSuccess)="copied = true">

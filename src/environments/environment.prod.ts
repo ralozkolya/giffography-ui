@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api.giffography.ge/',
+  apiUrl: 'https://api.giffography.ge/api/',
 };

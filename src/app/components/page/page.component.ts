@@ -23,7 +23,7 @@ export class PageComponent  {
     this.loading = true;
 
     try {
-      const { title, body } = await this.api.loadPage(path);
+      const { title, body } = await this.api.getPage(path);
       this.title = title;
       this.body = body;
     } catch (e) {
