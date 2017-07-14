@@ -28,9 +28,7 @@ export class EventComponent implements OnInit {
 
   public async ngOnInit() {
 
-    this.translate.onLangChange.subscribe(() => {
-      this.assignName();
-    });
+    this.translate.onLangChange.subscribe(() => this.assignName());
 
     this.loading = true;
     await this.retrieveEvent(this.route.snapshot.params.id);
