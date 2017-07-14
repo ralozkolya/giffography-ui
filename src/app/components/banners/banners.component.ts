@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Banner } from '../../interfaces/banner';
 
 @Component({
   selector: 'app-banners',
   templateUrl: './banners.component.html',
   styleUrls: ['./banners.component.scss']
 })
-export class BannersComponent implements OnInit {
+export class BannersComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input()
+  public banners: Banner[];
 
 }

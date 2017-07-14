@@ -8,6 +8,7 @@ import { LocalizeRouterModule } from 'localize-router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FacebookModule } from 'ng2-facebook-sdk';
 import { ClipboardModule } from 'ngx-clipboard';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
@@ -64,6 +65,7 @@ export function HttpLoaderFactory(http: Http) {
     InfiniteScrollModule,
     FacebookModule.forRoot(),
     ClipboardModule,
+    CarouselModule.forRoot(),
   ],
   providers: [ApiService, FacebookInitParamsService],
   bootstrap: [AppComponent]
