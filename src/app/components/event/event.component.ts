@@ -5,6 +5,7 @@ import { Video } from '../../interfaces/video';
 import { PaginatedResponse } from '../../interfaces/paginated-response';
 import { Event } from '../../interfaces/event';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-event',
@@ -24,6 +25,7 @@ export class EventComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private api: ApiService,
+              private title: Title,
               private translate: TranslateService) { }
 
   public async ngOnInit() {
@@ -61,6 +63,7 @@ export class EventComponent implements OnInit {
   private assignName(): void {
     const lang = this.translate.currentLang;
     this.name = this.event[`${lang}_name`];
+    this.title.setTitle(this.name + ' | Giffography.ge');
   }
 
 }

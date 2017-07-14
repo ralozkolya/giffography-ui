@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 import { ApiService } from '../../services/api.service';
-import { Page } from "../../interfaces/page";
+import { Page } from '../../interfaces/page';
 
 @Component({
   selector: 'app-page',
@@ -13,13 +14,14 @@ import { Page } from "../../interfaces/page";
 export class PageComponent implements OnInit {
 
   public page: Page;
-  public title: string;
+  public pageTitle: string;
   public body: string;
   public error: any = null;
   public loading = false;
 
   constructor(private route: ActivatedRoute,
               private api: ApiService,
+              private title: Title,
               private translate: TranslateService) {}
 
   public ngOnInit(): void {
@@ -45,7 +47,8 @@ export class PageComponent implements OnInit {
 
   private assignLocalized(): void {
     const lang = this.translate.currentLang;
-    this.title = this.page[`${lang}_title`];
+    this.pageTitle = this.page[`${lang}_title`];
     this.body = this.page[`${lang}_body`];
+    this.title.setTitle(this.pageTitle + ' | Giffography.ge');
   }
 }
