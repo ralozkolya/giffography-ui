@@ -1,4 +1,6 @@
 export interface Page {
-  title: string;
-  body: string;
+  ka_title: string;
+  en_title: string;
+  ka_body: string;
+  en_body: string;
 }
