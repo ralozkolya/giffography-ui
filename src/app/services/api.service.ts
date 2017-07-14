@@ -7,6 +7,7 @@ import { PaginatedResponse } from '../interfaces/paginated-response';
 import { Event } from '../interfaces/event';
 import { Video } from '../interfaces/video';
 import { Page } from '../interfaces/page';
+import { Banner } from '../interfaces/banner';
 
 import { environment } from '../../environments/environment';
 
@@ -58,14 +59,20 @@ export class ApiService {
     return await this.http.get(url).map(res => res.json()).toPromise();
   }
 
-
   public async getVideo(id: number): Promise<Video> {
     const url = this.videoUrl.replace(':id', id.toString());
     return await this.http.get(url).map(res => res.json()).toPromise();
   }
 
-  public async loadPage(path: string): Promise<Page> {
+  public async getPage(path: string): Promise<Page> {
     return Promise.resolve({title: 'test', body: '<h2>Test</h2>'});
+  }
+
+  public async getBanners(): Promise<Banner[]> {
+    return Promise.resolve([
+      {image: '/assets/img/banner-1.jpg'},
+      {image: '/assets/img/banner-2.jpg'},
+    ]);
   }
 
 }
