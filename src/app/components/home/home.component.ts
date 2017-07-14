@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
 import { ApiService } from '../../services/api.service';
 import { Video } from '../../interfaces/video';
 import { Banner } from '../../interfaces/banner';
@@ -13,9 +15,11 @@ export class HomeComponent implements OnInit {
   public banners: Banner[] = null;
   public lastVideos: Video[] = null;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,
+              private title: Title) { }
 
   ngOnInit() {
+    this.title.setTitle('Giffography.ge');
     this.retrieveLastVideos();
     this.retrieveBanners();
   }

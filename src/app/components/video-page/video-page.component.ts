@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FacebookService } from 'ng2-facebook-sdk';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
@@ -27,6 +28,7 @@ export class VideoPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private api: ApiService,
+              private title: Title,
               private translate: TranslateService,
               private facebook: FacebookService,
               private fbParams: FacebookInitParamsService) {}
@@ -70,6 +72,7 @@ export class VideoPageComponent implements OnInit {
   private assignName(): void {
     const lang = this.translate.currentLang;
     this.name = this.event[`${lang}_name`];
+    this.title.setTitle(this.name + ' | Giffography.ge');
   }
 
 }
